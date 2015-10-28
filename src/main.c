@@ -1,8 +1,5 @@
 /*
-		.# Aile Hekimi Yazılımı
-		     .<    Doğan DERYA    .>
-		 	 .<    g131210016     .>
-             .<  Bilg. Müh. İÖ.A  .>		
+		.# Aile Hekimi YazÄ±lÄ±mÄ±
 
 */
 #include <stdio.h>
@@ -27,7 +24,7 @@ struct Hasta
 	char adres[100];
 	int sgkdurumu; // 0 = sgk yok 1 = ssk 2= emekli sandigi 3= bagkur
 	
-	// Arama sisteminde türkçe karakter desteklesin diye
+	// Arama sisteminde tÃ¼rkÃ§e karakter desteklesin diye
 	char adiara[50];
 	char soyadiara[50];
 	char adresara[100];
@@ -48,47 +45,47 @@ int ToplamMuayene = 0;
 int AnaMenu(int bas)
 {
 	int secili = bas;
-	system("color 1f");                       // Programımızın ana rengini değiştirdik
+	system("color 1f");                       // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
 	
 	while(1)
 	{
-		system("cls");                        // Önceden yazılmış metinleri yok ettik
+		system("cls");                        // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 
 		printf("\n\n\t\t     #######################################\n");
 		printf("\t\t    -#        Aile Hekimi Sistemine        #-\n");
-		printf("\t\t     #             Hoşgeldiniz..           #\n");
+		printf("\t\t     #             HoÅŸgeldiniz..           #\n");
 		printf("\t\t    -#-------------------------------------#-\n");
-		printf("\t\t     #     Menüdeki elemanları yukarı ve   #\n");
-		printf("\t\t    -#   aşağı tuşlarıyla seçebilirsiniz   #-\n");
-		printf("\t\t     # seçimi yaptıktan sonra entere basın #\n");
+		printf("\t\t     #     MenÃ¼deki elemanlarÄ± yukarÄ± ve   #\n");
+		printf("\t\t    -#   aÅŸaÄŸÄ± tuÅŸlarÄ±yla seÃ§ebilirsiniz   #-\n");
+		printf("\t\t     # seÃ§imi yaptÄ±ktan sonra entere basÄ±n #\n");
 		printf("\t\t    -#-------------------------------------#-\n");
 		printf("\t\t     #  1. %c Hasta Ekle                    #\n",(secili == 0)? 26 : ' ');
-		printf("\t\t     #  2. %c Hasta Kartları                #\n",(secili == 1)? 26 : ' ');
+		printf("\t\t     #  2. %c Hasta KartlarÄ±                #\n",(secili == 1)? 26 : ' ');
 		printf("\t\t    -#  3. %c Hasta Arama                   #-\n",(secili == 2)? 26 : ' ');
 		printf("\t\t     #  4. %c Genel Raporlar                #\n",(secili == 3)? 26 : ' ');
 		printf("\t\t     #  5. %c Ekstra                        #\n",(secili == 4)? 26 : ' ');
-		printf("\t\t    -#  6. %c Çıkış                         #-\n",(secili == 5)? 26 : ' ');
+		printf("\t\t    -#  6. %c Ã‡Ä±kÄ±ÅŸ                         #-\n",(secili == 5)? 26 : ' ');
 		printf("\t\t     #-------------------------------------#\n");
-		printf("\t\t    -#    ESC tuşu ilede çıkabilirsiniz    #-\n");
+		printf("\t\t    -#    ESC tuÅŸu ilede Ã§Ä±kabilirsiniz    #-\n");
 		printf("\t\t     #-------------------------------------#\n");
 		printf("\t\t     #######################################\n");
 		
 		int tus = getch();
-		if(tus == 80)                        // Aşağı Tuşu
+		if(tus == 80)                        // AÅŸaÄŸÄ± TuÅŸu
 			(secili < 5) ? (secili++) : 0; 
-		else if(tus == 72)                   // Yukarı Tuşu
+		else if(tus == 72)                   // YukarÄ± TuÅŸu
 			(secili > 0) ? (secili--) : 0; 
-		else if(tus == 13)                   // Enter tuşu 
+		else if(tus == 13)                   // Enter tuÅŸu 
 			return secili;
-		else if(tus == 27)                   // ESC tuşu
+		else if(tus == 27)                   // ESC tuÅŸu
 		{
 			secili = 6;
 			return secili;
 		}
-		else if((47 < tus) && (tus < 58))   // Hızlı sayı girişi
+		else if((47 < tus) && (tus < 58))   // HÄ±zlÄ± sayÄ± giriÅŸi
 		{
-			secili = tus - 49;              // 48 ascii karakterinde 0'a denk geliyor. Biz 1'e basıldığında ilkini yazmasını istiyoruz
-			return secili;                  // ilk icin secili = 0 olması gerekiyorsa ve tuşlardan 1'in değeri 49'sa 49-49=0
+			secili = tus - 49;              // 48 ascii karakterinde 0'a denk geliyor. Biz 1'e basÄ±ldÄ±ÄŸÄ±nda ilkini yazmasÄ±nÄ± istiyoruz
+			return secili;                  // ilk icin secili = 0 olmasÄ± gerekiyorsa ve tuÅŸlardan 1'in deÄŸeri 49'sa 49-49=0
 		}
 	}
 }
@@ -100,36 +97,36 @@ int AnaMenu(int bas)
 */
 int Uyar(char* a)
 {
-	return Uyarsec(a,"Evet","Hayır","       ","          ","         ");
+	return Uyarsec(a,"Evet","HayÄ±r","       ","          ","         ");
 }
 
 int Uyarsec(char* a, char* b, char* c, char* spcb,char* spcc,char* spce)
 {
 	int secili=1;
-	system("color 2F");                       // Programımızın ana rengini değiştirdik
+	system("color 2F");                       // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
 	
 	while(1)
 	{
-		system("cls");        		          // Önceden yazılmış metinleri yok ettik
+		system("cls");        		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 		
 		printf("\n\n\t\t     #######################################\n");
 		printf("\t\t    -#         Aile Hekimi Sistemi         #-\n");
 		printf("\t\t     #-------------------------------------#\n");
 		printf("\t\t    -#%s#-\n",a);
 		printf("\t\t     #-------------------------------------#\n");
-		printf("\t\t    -#   İşlemini Yapmak istediğinizden    #-\n");
+		printf("\t\t    -#   Ä°ÅŸlemini Yapmak istediÄŸinizden    #-\n");
 		printf("\t\t     #             emin misiniz?           #\n");
 		printf("\t\t    -#%s%c%s%s%c%s%s#-\n",spcb,(secili == 0)? 26 : ' ',b,spcc,(secili == 1)? 26 : ' ',c,spce);
 		printf("\t\t     #######################################\n");
 		
 		int tus = getch();
-		if(tus == 77)                        // Sağ Tuşu
+		if(tus == 77)                        // SaÄŸ TuÅŸu
 			(secili < 1) ? (secili++) : 0; 
-		else if(tus == 75)                   // Sol Tuşu
+		else if(tus == 75)                   // Sol TuÅŸu
 			(secili > 0) ? (secili--) : 0;
-		else if(tus == 13)  				 // Enter Tuşu
+		else if(tus == 13)  				 // Enter TuÅŸu
 			return secili;
-		else if(tus == 27)                   // ESC tuşu (Hayır olarak geçer)
+		else if(tus == 27)                   // ESC tuÅŸu (HayÄ±r olarak geÃ§er)
 		{
 			secili = 1;
 			return secili;
@@ -140,11 +137,11 @@ int Uyarsec(char* a, char* b, char* c, char* spcb,char* spcc,char* spce)
 
 void Bilgilendir(char* a)
 {
-	system("color F0");                       // Programımızın ana rengini değiştirdik
+	system("color F0");                       // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
 	
 	while(1)
 	{
-		system("cls");        		          // Önceden yazılmış metinleri yok ettik
+		system("cls");        		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 		
 		printf("\n\n\t\t     #######################################\n");
 		printf("\t\t    -#         Aile Hekimi Sistemi         #-\n");
@@ -155,15 +152,15 @@ void Bilgilendir(char* a)
 		printf("\t\t     #######################################\n");
 		
 		int tus = getch();
-		if((tus == 13) || (tus == 27))        // Enter veya ESC tuşuna basıldığında çıksın
+		if((tus == 13) || (tus == 27))        // Enter veya ESC tuÅŸuna basÄ±ldÄ±ÄŸÄ±nda Ã§Ä±ksÄ±n
 			return;
 	}
 }
 
 void YeniMuayene(int id)
 {
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");        		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");        		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 	
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
@@ -173,10 +170,10 @@ void YeniMuayene(int id)
 	
 	struct Muayene M;
 
-	printf("    # Muayene Teşhislerini Giriniz: ");
+	printf("    # Muayene TeÅŸhislerini Giriniz: ");
 	scanf(" %[^\n]", M.teshisler);
 	
-	printf("    # Muayene Reçeteyi giriniz: ");
+	printf("    # Muayene ReÃ§eteyi giriniz: ");
 	scanf(" %[^\n]", M.recete);
 	
 	printf("    # Muayene Tarihini giriniz: ");
@@ -184,17 +181,17 @@ void YeniMuayene(int id)
 	
 	if(MuayeneKaydet(id, M.teshisler, M.recete, M.muayenetarihi))
 	{
-		Bilgilendir(" Muayene kayıdı başarıyla tamamlandı ");
+		Bilgilendir(" Muayene kayÄ±dÄ± baÅŸarÄ±yla tamamlandÄ± ");
 		return;
 	}
-	Bilgilendir("    Muayene kayıdı tamamlanamadı!    ");
+	Bilgilendir("    Muayene kayÄ±dÄ± tamamlanamadÄ±!    ");
 	
 }
 
 void HastaEkle()
 {
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");        		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");        		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 	
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
@@ -205,16 +202,16 @@ void HastaEkle()
 	struct Hasta H;
 	int sgk;
 	
-	printf("    # Hasta Adını Giriniz: ");
+	printf("    # Hasta AdÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.adi);
 	
-	printf("    # Hasta Soyadını Giriniz: ");
+	printf("    # Hasta SoyadÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.soyadi);
 	
-	printf("    # Hasta'nın T.C. Kimlik Numarasını Giriniz: ");
+	printf("    # Hasta'nÄ±n T.C. Kimlik NumarasÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.tckimlik);
 	
-	printf("    # Hasta'nın Cinsiyetini Giriniz(e/k) : ");
+	printf("    # Hasta'nÄ±n Cinsiyetini Giriniz(e/k) : ");
 	cinsiyet_gir:
 	switch(putch(getch()))
 	{
@@ -229,29 +226,29 @@ void HastaEkle()
 			break;
 		
 		default:
-			printf("\nGeçersiz Girdiniz Yeniden girin! : ");
+			printf("\nGeÃ§ersiz Girdiniz Yeniden girin! : ");
 			goto cinsiyet_gir;
 	}
 	
-	printf("\n    # Hasta'nın doğum tarihini girin (2 Haziran 1963): ");
+	printf("\n    # Hasta'nÄ±n doÄŸum tarihini girin (2 Haziran 1963): ");
 	scanf(" %[^\n]",H.dogumtarihi);
 	
-	printf("    # Hasta'nın Ana adını Giriniz: ");
+	printf("    # Hasta'nÄ±n Ana adÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]",H.anaadi);
 	
-	printf("    # Hasta'nın Baba adını Giriniz: ");
+	printf("    # Hasta'nÄ±n Baba adÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]",H.babaadi);
 	
-	printf("    # Hasta'nın Kan Grubunu Giriniz (A rh+): ");
+	printf("    # Hasta'nÄ±n Kan Grubunu Giriniz (A rh+): ");
 	scanf(" %[^\n]",H.kangrubu);
 	
 	
 	printf("\n    		1. Ssk \n");
-	printf("    		2. Emekli Sandığı \n");
-	printf("    		3. Bağ-kur \n");
+	printf("    		2. Emekli SandÄ±ÄŸÄ± \n");
+	printf("    		3. BaÄŸ-kur \n");
 	printf("    		4. Yok \n");
 	printf("    		5. Bilinmiyor \n");
-	printf("    # Hasta'nın Sosyal Güvenlik Kurumunu Giriniz : ");
+	printf("    # Hasta'nÄ±n Sosyal GÃ¼venlik Kurumunu Giriniz : ");
 	
 	sgk_gir:
 	sgk = putch(getch());
@@ -262,20 +259,20 @@ void HastaEkle()
 		case '3':
 		case '4':
 		case '5':
-			H.sgkdurumu = sgk-48; // ASCII 'de '1' = 49 ise 49-48= 1 olacaktır
+			H.sgkdurumu = sgk-48; // ASCII 'de '1' = 49 ise 49-48= 1 olacaktÄ±r
 			break;
 		default:
-			printf("\nGeçersiz Girdiniz Yeniden girin! : ");
+			printf("\nGeÃ§ersiz Girdiniz Yeniden girin! : ");
 			goto sgk_gir;
 			break;
 	}
 	
-	printf("\n    # Hasta'nın Adresini Giriniz : ");
+	printf("\n    # Hasta'nÄ±n Adresini Giriniz : ");
 	scanf(" %[^\n]",H.adres);
 	
-	if(Uyarsec("        Kayıdı sisteme geçirme       ","Geçir","Geçirme","       ","       ","         "))
+	if(Uyarsec("        KayÄ±dÄ± sisteme geÃ§irme       ","GeÃ§ir","GeÃ§irme","       ","       ","         "))
 	{
-		Bilgilendir("     Hasta kayıdı iptal edildi!      ");
+		Bilgilendir("     Hasta kayÄ±dÄ± iptal edildi!      ");
 		return;
 	}
 	
@@ -286,11 +283,11 @@ void HastaEkle()
 		fprintf(fs, "%s, %s, %s, %d, %s, %s, %s, %s, %d, %s,\n",H.adi,H.soyadi,H.tckimlik,H.cinsiyet,H.dogumtarihi,H.anaadi,H.babaadi,H.kangrubu,H.sgkdurumu,H.adres);
 		fclose(fs);
 		
-		Bilgilendir("  Hasta kayıdı başarıyla tamamlandı! ");
+		Bilgilendir("  Hasta kayÄ±dÄ± baÅŸarÄ±yla tamamlandÄ±! ");
 		return;
 	}
 	
-	Bilgilendir("   Hasta kayıdı hatayla sonuçlandı!  ");
+	Bilgilendir("   Hasta kayÄ±dÄ± hatayla sonuÃ§landÄ±!  ");
 	
 	
 	
@@ -355,160 +352,160 @@ void HastalariYukle()
 			
 			ToplamHasta++;
 			
-			// Türkçe karakterlerini tek tek düzeltmeye yarayan muazzam fonksiyonumuz :D
+			// TÃ¼rkÃ§e karakterlerini tek tek dÃ¼zeltmeye yarayan muazzam fonksiyonumuz :D
 			int i=0;
 			for(i=0;i<100;i++)
 			{
 				if(YHasta[idx].adres[i]==-115) 
-					YHasta[idx].adres[i]='ı';
+					YHasta[idx].adres[i]='Ä±';
 				if(YHasta[idx].adres[i]==-89) 
-					YHasta[idx].adres[i]='ğ';
+					YHasta[idx].adres[i]='ÄŸ';
 				if(YHasta[idx].adres[i]==-90) 
-					YHasta[idx].adres[i]='Ğ';
+					YHasta[idx].adres[i]='Ä';
 				if(YHasta[idx].adres[i]==-127) 
-					YHasta[idx].adres[i]='ü';
+					YHasta[idx].adres[i]='Ã¼';
 				if(YHasta[idx].adres[i]==-102) 
-					YHasta[idx].adres[i]='ü';
+					YHasta[idx].adres[i]='Ã¼';
 				if(YHasta[idx].adres[i]==-97) 
-					YHasta[idx].adres[i]='ş';
+					YHasta[idx].adres[i]='ÅŸ';
 				if(YHasta[idx].adres[i]==-98) 
-					YHasta[idx].adres[i]='Ş';
+					YHasta[idx].adres[i]='Å';
 				if(YHasta[idx].adres[i]==-104) 
-					YHasta[idx].adres[i]='İ';
+					YHasta[idx].adres[i]='Ä°';
 				if(YHasta[idx].adres[i]==-108) 
-					YHasta[idx].adres[i]='Ö';
+					YHasta[idx].adres[i]='Ã–';
 				if(YHasta[idx].adres[i]==-103) 
-					YHasta[idx].adres[i]='Ö';
+					YHasta[idx].adres[i]='Ã–';
 				if(YHasta[idx].adres[i]==-121) 
-					YHasta[idx].adres[i]='ç';
+					YHasta[idx].adres[i]='Ã§';
 				if(YHasta[idx].adres[i]==-128) 
-					YHasta[idx].adres[i]='Ç';
+					YHasta[idx].adres[i]='Ã‡';
 				if(i<50)
 				{
 					if(YHasta[idx].adi[i]==-115) 
-						YHasta[idx].adi[i]='ı';
+						YHasta[idx].adi[i]='Ä±';
 					if(YHasta[idx].adi[i]==-89) 
-						YHasta[idx].adi[i]='ğ';
+						YHasta[idx].adi[i]='ÄŸ';
 					if(YHasta[idx].adi[i]==-90) 
-						YHasta[idx].adi[i]='Ğ';
+						YHasta[idx].adi[i]='Ä';
 					if(YHasta[idx].adi[i]==-127)
-						YHasta[idx].adi[i]='ü';
+						YHasta[idx].adi[i]='Ã¼';
 					if(YHasta[idx].adi[i]==-102) 
-						YHasta[idx].adi[i]='ü';
+						YHasta[idx].adi[i]='Ã¼';
 					if(YHasta[idx].adi[i]==-97) 
-						YHasta[idx].adi[i]='ş';
+						YHasta[idx].adi[i]='ÅŸ';
 					if(YHasta[idx].adi[i]==-98) 
-						YHasta[idx].adi[i]='Ş';
+						YHasta[idx].adi[i]='Å';
 					if(YHasta[idx].adi[i]==-104) 
-						YHasta[idx].adi[i]='İ';
+						YHasta[idx].adi[i]='Ä°';
 					if(YHasta[idx].adi[i]==-108) 
-						YHasta[idx].adi[i]='Ö';
+						YHasta[idx].adi[i]='Ã–';
 					if(YHasta[idx].adi[i]==-103) 
-						YHasta[idx].adi[i]='Ö';
+						YHasta[idx].adi[i]='Ã–';
 					if(YHasta[idx].adi[i]==-121) 
-						YHasta[idx].adi[i]='ç';
+						YHasta[idx].adi[i]='Ã§';
 					if(YHasta[idx].adi[i]==-128) 
-						YHasta[idx].adi[i]='Ç';
+						YHasta[idx].adi[i]='Ã‡';
 					
 					if(YHasta[idx].soyadi[i]==-115) 
-						YHasta[idx].soyadi[i]='ı';
+						YHasta[idx].soyadi[i]='Ä±';
 					if(YHasta[idx].soyadi[i]==-89) 
-						YHasta[idx].soyadi[i]='ğ';
+						YHasta[idx].soyadi[i]='ÄŸ';
 					if(YHasta[idx].soyadi[i]==-90) 
-						YHasta[idx].soyadi[i]='Ğ';
+						YHasta[idx].soyadi[i]='Ä';
 					if(YHasta[idx].soyadi[i]==-127) 
-						YHasta[idx].soyadi[i]='ü';
+						YHasta[idx].soyadi[i]='Ã¼';
 					if(YHasta[idx].soyadi[i]==-102) 
-						YHasta[idx].soyadi[i]='ü';
+						YHasta[idx].soyadi[i]='Ã¼';
 					if(YHasta[idx].soyadi[i]==-97) 
-						YHasta[idx].soyadi[i]='ş';
+						YHasta[idx].soyadi[i]='ÅŸ';
 					if(YHasta[idx].soyadi[i]==-98) 
-						YHasta[idx].soyadi[i]='Ş';
+						YHasta[idx].soyadi[i]='Å';
 					if(YHasta[idx].soyadi[i]==-104) 
-						YHasta[idx].soyadi[i]='İ';
+						YHasta[idx].soyadi[i]='Ä°';
 					if(YHasta[idx].soyadi[i]==-108) 
-						YHasta[idx].soyadi[i]='Ö';
+						YHasta[idx].soyadi[i]='Ã–';
 					if(YHasta[idx].soyadi[i]==-103) 
-						YHasta[idx].soyadi[i]='Ö';
+						YHasta[idx].soyadi[i]='Ã–';
 					if(YHasta[idx].soyadi[i]==-121) 
-						YHasta[idx].soyadi[i]='ç';
+						YHasta[idx].soyadi[i]='Ã§';
 					if(YHasta[idx].soyadi[i]==-128) 
-						YHasta[idx].soyadi[i]='Ç';
+						YHasta[idx].soyadi[i]='Ã‡';
 					
 					if(YHasta[idx].dogumtarihi[i]==-115) 
-						YHasta[idx].dogumtarihi[i]='ı';
+						YHasta[idx].dogumtarihi[i]='Ä±';
 					if(YHasta[idx].dogumtarihi[i]==-89) 
-						YHasta[idx].dogumtarihi[i]='ğ';
+						YHasta[idx].dogumtarihi[i]='ÄŸ';
 					if(YHasta[idx].dogumtarihi[i]==-90) 
-						YHasta[idx].dogumtarihi[i]='Ğ';
+						YHasta[idx].dogumtarihi[i]='Ä';
 					if(YHasta[idx].dogumtarihi[i]==-127) 
-						YHasta[idx].dogumtarihi[i]='ü';
+						YHasta[idx].dogumtarihi[i]='Ã¼';
 					if(YHasta[idx].dogumtarihi[i]==-102) 
-						YHasta[idx].dogumtarihi[i]='ü';
+						YHasta[idx].dogumtarihi[i]='Ã¼';
 					if(YHasta[idx].dogumtarihi[i]==-97) 
-						YHasta[idx].dogumtarihi[i]='ş';
+						YHasta[idx].dogumtarihi[i]='ÅŸ';
 					if(YHasta[idx].dogumtarihi[i]==-98) 
-						YHasta[idx].dogumtarihi[i]='Ş';
+						YHasta[idx].dogumtarihi[i]='Å';
 					if(YHasta[idx].dogumtarihi[i]==-104) 
-						YHasta[idx].dogumtarihi[i]='İ';
+						YHasta[idx].dogumtarihi[i]='Ä°';
 					if(YHasta[idx].dogumtarihi[i]==-108) 
-						YHasta[idx].dogumtarihi[i]='Ö';
+						YHasta[idx].dogumtarihi[i]='Ã–';
 					if(YHasta[idx].dogumtarihi[i]==-103) 
-						YHasta[idx].dogumtarihi[i]='Ö';
+						YHasta[idx].dogumtarihi[i]='Ã–';
 					if(YHasta[idx].dogumtarihi[i]==-121) 
-						YHasta[idx].dogumtarihi[i]='ç';
+						YHasta[idx].dogumtarihi[i]='Ã§';
 					if(YHasta[idx].dogumtarihi[i]==-128) 
-						YHasta[idx].dogumtarihi[i]='Ç';
+						YHasta[idx].dogumtarihi[i]='Ã‡';
 					
 					if(YHasta[idx].anaadi[i]==-115) 
-						YHasta[idx].anaadi[i]='ı';
+						YHasta[idx].anaadi[i]='Ä±';
 					if(YHasta[idx].anaadi[i]==-89) 
-						YHasta[idx].anaadi[i]='ğ';
+						YHasta[idx].anaadi[i]='ÄŸ';
 					if(YHasta[idx].anaadi[i]==-90)
-						 YHasta[idx].anaadi[i]='Ğ';
+						 YHasta[idx].anaadi[i]='Ä';
 					if(YHasta[idx].anaadi[i]==-127) 
-						YHasta[idx].anaadi[i]='ü';
+						YHasta[idx].anaadi[i]='Ã¼';
 					if(YHasta[idx].anaadi[i]==-102) 
-						YHasta[idx].anaadi[i]='ü';
+						YHasta[idx].anaadi[i]='Ã¼';
 					if(YHasta[idx].anaadi[i]==-97) 
-						YHasta[idx].anaadi[i]='ş';
+						YHasta[idx].anaadi[i]='ÅŸ';
 					if(YHasta[idx].anaadi[i]==-98) 
-						YHasta[idx].anaadi[i]='Ş';
+						YHasta[idx].anaadi[i]='Å';
 					if(YHasta[idx].anaadi[i]==-104) 
-						YHasta[idx].anaadi[i]='İ';
+						YHasta[idx].anaadi[i]='Ä°';
 					if(YHasta[idx].anaadi[i]==-108) 
-						YHasta[idx].anaadi[i]='Ö';
+						YHasta[idx].anaadi[i]='Ã–';
 					if(YHasta[idx].anaadi[i]==-103) 
-						YHasta[idx].anaadi[i]='Ö';
+						YHasta[idx].anaadi[i]='Ã–';
 					if(YHasta[idx].anaadi[i]==-121) 
-						YHasta[idx].anaadi[i]='ç';
+						YHasta[idx].anaadi[i]='Ã§';
 					if(YHasta[idx].anaadi[i]==-128) 
-						YHasta[idx].anaadi[i]='Ç';
+						YHasta[idx].anaadi[i]='Ã‡';
 					
 					if(YHasta[idx].babaadi[i]==-115) 
-						YHasta[idx].babaadi[i]='ı';
+						YHasta[idx].babaadi[i]='Ä±';
 					if(YHasta[idx].babaadi[i]==-89) 
-						YHasta[idx].babaadi[i]='ğ';
+						YHasta[idx].babaadi[i]='ÄŸ';
 					if(YHasta[idx].babaadi[i]==-90) 
-						YHasta[idx].babaadi[i]='Ğ';
+						YHasta[idx].babaadi[i]='Ä';
 					if(YHasta[idx].babaadi[i]==-127) 
-						YHasta[idx].babaadi[i]='ü';
+						YHasta[idx].babaadi[i]='Ã¼';
 					if(YHasta[idx].babaadi[i]==-102) 
-						YHasta[idx].babaadi[i]='ü';
+						YHasta[idx].babaadi[i]='Ã¼';
 					if(YHasta[idx].babaadi[i]==-97) 
-						YHasta[idx].babaadi[i]='ş';
+						YHasta[idx].babaadi[i]='ÅŸ';
 					if(YHasta[idx].babaadi[i]==-98) 
-						YHasta[idx].babaadi[i]='Ş';
+						YHasta[idx].babaadi[i]='Å';
 					if(YHasta[idx].babaadi[i]==-104) 
-						YHasta[idx].babaadi[i]='İ';
+						YHasta[idx].babaadi[i]='Ä°';
 					if(YHasta[idx].babaadi[i]==-108) 
-						YHasta[idx].babaadi[i]='Ö';
+						YHasta[idx].babaadi[i]='Ã–';
 					if(YHasta[idx].babaadi[i]==-103) 
-						YHasta[idx].babaadi[i]='Ö';
+						YHasta[idx].babaadi[i]='Ã–';
 					if(YHasta[idx].babaadi[i]==-121) 
-						YHasta[idx].babaadi[i]='ç';
+						YHasta[idx].babaadi[i]='Ã§';
 					if(YHasta[idx].babaadi[i]==-128) 
-						YHasta[idx].babaadi[i]='Ç';
+						YHasta[idx].babaadi[i]='Ã‡';
 				}
 			}
 			idx++;
@@ -524,48 +521,48 @@ void HastaKarti(int basnok)
 	
 	if(ToplamHasta == 0)
 	{
-		Bilgilendir("       Şuan hasta sayısı 0'dır       ");
+		Bilgilendir("       Åuan hasta sayÄ±sÄ± 0'dÄ±r       ");
 	}
 	
 	while(1)
 	{
-		system("color f1");                   // Programımızın ana rengini değiştirdik
-		system("cls");       		          // Önceden yazılmış metinleri yok ettik
+		system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+		system("cls");       		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 		
 		printf("\n\n\t\t     #######################################\n");
 		printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
-		printf("\t\t     #          Hasta Kartı [%.2d/%.2d]        #\n",aktif+1,ToplamHasta);
+		printf("\t\t     #          Hasta KartÄ± [%.2d/%.2d]        #\n",aktif+1,ToplamHasta);
 		printf("\t\t    -#-------------------------------------#-\n");
 		printf("######################                                     #####################\n\n");
-		printf("    # Hasta Kayıt sırası: %d\n",aktif+1);
-		printf("    # Hasta Adı Soyadı: %s %s\n",YHasta[aktif].adi,YHasta[aktif].soyadi);
+		printf("    # Hasta KayÄ±t sÄ±rasÄ±: %d\n",aktif+1);
+		printf("    # Hasta AdÄ± SoyadÄ±: %s %s\n",YHasta[aktif].adi,YHasta[aktif].soyadi);
 		printf("    # Hasta TC Kimlik: %s\n",YHasta[aktif].tckimlik);
-		printf("    # Hasta Cinsiyeti %s\n",(YHasta[aktif].cinsiyet==1?"Erkek":"Kadın"));
-		printf("    # Hasta Doğum Tarihi: %s\n",YHasta[aktif].dogumtarihi);
-		printf("    # Hasta Ana Adı: %s\n",YHasta[aktif].anaadi);
-		printf("    # Hasta Baba Adı: %s\n",YHasta[aktif].babaadi);
+		printf("    # Hasta Cinsiyeti %s\n",(YHasta[aktif].cinsiyet==1?"Erkek":"KadÄ±n"));
+		printf("    # Hasta DoÄŸum Tarihi: %s\n",YHasta[aktif].dogumtarihi);
+		printf("    # Hasta Ana AdÄ±: %s\n",YHasta[aktif].anaadi);
+		printf("    # Hasta Baba AdÄ±: %s\n",YHasta[aktif].babaadi);
 		printf("    # Hasta Kan Grubu: %s\n",YHasta[aktif].kangrubu);
-		printf("    # Hasta Sgk: %s\n",YHasta[aktif].sgkdurumu==1?"SSK":YHasta[aktif].sgkdurumu==2?"Emekli Sandığı":YHasta[aktif].sgkdurumu==3?"Bağ-Kur":YHasta[aktif].sgkdurumu==4?"Yok":"Bilinmiyor");
+		printf("    # Hasta Sgk: %s\n",YHasta[aktif].sgkdurumu==1?"SSK":YHasta[aktif].sgkdurumu==2?"Emekli SandÄ±ÄŸÄ±":YHasta[aktif].sgkdurumu==3?"BaÄŸ-Kur":YHasta[aktif].sgkdurumu==4?"Yok":"Bilinmiyor");
 		printf("    # Hasta Adresi: %s\n",YHasta[aktif].adres);
 		
 		printf("\n\n--------------------------------------------------------------------------------");
-		printf("\n   %csol kart      %csağ kart       %cgüncelle    (e)yeni mu.   %chastayı sil   ",27,26,24,25);
+		printf("\n   %csol kart      %csaÄŸ kart       %cgÃ¼ncelle    (e)yeni mu.   %chastayÄ± sil   ",27,26,24,25);
 		
 		int tus = getch();
-		if(tus == 77)                        // Sağ Tuşu
+		if(tus == 77)                        // SaÄŸ TuÅŸu
 			(aktif < ToplamHasta-1) ? (aktif++) : 0; 
-		else if(tus == 75)                   // Sol Tuşu
+		else if(tus == 75)                   // Sol TuÅŸu
 			(aktif > 0) ? (aktif--) : 0;
-		else if(tus == 13)                   // Enter Tuşu
+		else if(tus == 13)                   // Enter TuÅŸu
 		{
 			YeniMuayene(aktif);
 			return;
 		}
-		else if(tus == 72)					 // Yukarı tuşu  (güncelle)
+		else if(tus == 72)					 // YukarÄ± tuÅŸu  (gÃ¼ncelle)
 		{
 			HastaGuncelle(aktif);
 		}
-		else if(tus == 80)                   // Aşağı tuşu  (hasta sil)
+		else if(tus == 80)                   // AÅŸaÄŸÄ± tuÅŸu  (hasta sil)
 		{
 			if(!Uyar("             Hasta Silme             "))
 			{
@@ -581,13 +578,13 @@ void HastaKarti(int basnok)
 					}
 					fclose(fs);
 					
-					Bilgilendir("       Hasta başarıyla silindi!      ");
+					Bilgilendir("       Hasta baÅŸarÄ±yla silindi!      ");
 					return;
 					
 				}
 			}
 		}
-		else if(tus == 27)                   // ESC tuşu (Ana Menüye dön)
+		else if(tus == 27)                   // ESC tuÅŸu (Ana MenÃ¼ye dÃ¶n)
 			return;
 	}
 	
@@ -601,18 +598,18 @@ void MuayeneBilgisi(int id)
 	
 	if(HMuSay == 0)
 	{
-		Bilgilendir(" Bu hasta daha önce muayene olmamış  ");
+		Bilgilendir(" Bu hasta daha Ã¶nce muayene olmamÄ±ÅŸ  ");
 		return;
 	}
 
 	while(1)
 	{
-		system("color f1");                   // Programımızın ana rengini değiştirdik
-		system("cls");       		          // Önceden yazılmış metinleri yok ettik
+		system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+		system("cls");       		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 		
 		printf("\n\n\t\t     #######################################\n");
 		printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
-		printf("\t\t     #          Hasta Muayene Kartı        #\n");
+		printf("\t\t     #          Hasta Muayene KartÄ±        #\n");
 		printf("\t\t    -#-------------------------------------#-\n");
 		printf("######################                                     #####################\n\n");
 		
@@ -621,14 +618,14 @@ void MuayeneBilgisi(int id)
 		{
 			if(YMuayene[i].hastaid == id)
 			{
-				printf("    #   Muayene Kaydı: %d\n",i);
-				printf("    #   Muayene Teşhisler: %s\n",YMuayene[id].teshisler);
+				printf("    #   Muayene KaydÄ±: %d\n",i);
+				printf("    #   Muayene TeÅŸhisler: %s\n",YMuayene[id].teshisler);
 				printf("    #   Muayene Tarihi: %s\n",YMuayene[id].muayenetarihi);
-				printf("    #   Reçete bilgisi: %s\n\n",YMuayene[id].recete);
+				printf("    #   ReÃ§ete bilgisi: %s\n\n",YMuayene[id].recete);
 			}
 		}
 		int tus = getch();
-		if(tus == 27)                   // ESC tuşu (Hasta kartına dön)
+		if(tus == 27)                   // ESC tuÅŸu (Hasta kartÄ±na dÃ¶n)
 			return;
 	}
 }
@@ -637,8 +634,8 @@ void MuayeneBilgisi(int id)
 int HastaArama()
 {
 	git_hasta_arama:
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");       		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");       		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 		
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
@@ -647,7 +644,7 @@ int HastaArama()
 	printf("######################                                     #####################\n\n");
 	
 	char hastas[100];
-	printf("    # Arama yaparken lütfen sadece o hastaya ait olabilecek detayları kullanın\n");
+	printf("    # Arama yaparken lÃ¼tfen sadece o hastaya ait olabilecek detaylarÄ± kullanÄ±n\n");
 	printf("    # Hasta Ara: ");
 	scanf(" %[^\n]",hastas);
 	
@@ -660,7 +657,7 @@ int HastaArama()
 		}	
 	}
 	
-	if(Uyar("   Hastayı Bulamadık! :( Yeniden?    "))
+	if(Uyar("   HastayÄ± BulamadÄ±k! :( Yeniden?    "))
 	{
 		return -1;
 	}
@@ -669,16 +666,16 @@ int HastaArama()
 
 int Gelistiren()
 {
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");       		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");       		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 	
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
 	printf("\t\t     #               Ekstra                #\n");
 	printf("\t\t    -#-------------------------------------#-\n");
-	printf("\t\t     #          Geliştiren :               #\n");
+	printf("\t\t     #          GeliÅŸtiren :               #\n");
 	printf("\t\t    -#               co3moz                #-\n");
-	printf("\t\t     #             Doğan DERYA             #\n");
+	printf("\t\t     #             DoÄŸan DERYA             #\n");
 	printf("\t\t    -#             Comp. Eng.              #-\n");
 	printf("\t\t     #-------------------------------------#\n");
 	printf("\t\t     #######################################\n");
@@ -687,8 +684,8 @@ int Gelistiren()
 
 void GenelRaporlar()
 {
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");       		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");       		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 	
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
@@ -696,8 +693,8 @@ void GenelRaporlar()
 	printf("\t\t    -#-------------------------------------#-\n");
 	printf("######################                                     #####################\n");
 	
-	printf("    # Toplam Kayıtlı Hasta: %d\n", ToplamHasta);
-	printf("    # Toplam Kayıtlı Muayene: %d", ToplamMuayene);
+	printf("    # Toplam KayÄ±tlÄ± Hasta: %d\n", ToplamHasta);
+	printf("    # Toplam KayÄ±tlÄ± Muayene: %d", ToplamMuayene);
 	
 	
 	getch();
@@ -705,28 +702,28 @@ void GenelRaporlar()
 
 void HastaGuncelle(int id)
 {
-	system("color f1");                   // Programımızın ana rengini değiştirdik
-	system("cls");        		          // Önceden yazılmış metinleri yok ettik
+	system("color f1");                   // ProgramÄ±mÄ±zÄ±n ana rengini deÄŸiÅŸtirdik
+	system("cls");        		          // Ã–nceden yazÄ±lmÄ±ÅŸ metinleri yok ettik
 	
 	printf("\n\n\t\t     #######################################\n");
 	printf("\t\t    -#          Aile Hekimi Sistemi        #-\n");
-	printf("\t\t     #            Hasta Güncelle           #\n");
+	printf("\t\t     #            Hasta GÃ¼ncelle           #\n");
 	printf("\t\t    -#-------------------------------------#-\n");
 	printf("######################                                     #####################\n");
 	
 	struct Hasta H;
 	int sgk;
 	
-	printf("    # Hasta Adını Giriniz: ");
+	printf("    # Hasta AdÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.adi);
 	
-	printf("    # Hasta Soyadını Giriniz: ");
+	printf("    # Hasta SoyadÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.soyadi);
 	
-	printf("    # Hasta'nın T.C. Kimlik Numarasını Giriniz: ");
+	printf("    # Hasta'nÄ±n T.C. Kimlik NumarasÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]", H.tckimlik);
 	
-	printf("    # Hasta'nın Cinsiyetini Giriniz(e/k) : ");
+	printf("    # Hasta'nÄ±n Cinsiyetini Giriniz(e/k) : ");
 	cinsiyet_gir:
 	switch(putch(getch()))
 	{
@@ -741,29 +738,29 @@ void HastaGuncelle(int id)
 			break;
 		
 		default:
-			printf("\nGeçersiz Girdiniz Yeniden girin! : ");
+			printf("\nGeÃ§ersiz Girdiniz Yeniden girin! : ");
 			goto cinsiyet_gir;
 	}
 	
-	printf("\n    # Hasta'nın doğum tarihini girin (2 Haziran 1963): ");
+	printf("\n    # Hasta'nÄ±n doÄŸum tarihini girin (2 Haziran 1963): ");
 	scanf(" %[^\n]",H.dogumtarihi);
 	
-	printf("    # Hasta'nın Ana adını Giriniz: ");
+	printf("    # Hasta'nÄ±n Ana adÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]",H.anaadi);
 	
-	printf("    # Hasta'nın Baba adını Giriniz: ");
+	printf("    # Hasta'nÄ±n Baba adÄ±nÄ± Giriniz: ");
 	scanf(" %[^\n]",H.babaadi);
 	
-	printf("    # Hasta'nın Kan Grubunu Giriniz (A rh+): ");
+	printf("    # Hasta'nÄ±n Kan Grubunu Giriniz (A rh+): ");
 	scanf(" %[^\n]",H.kangrubu);
 	
 	
 	printf("\n    		1. Ssk \n");
-	printf("    		2. Emekli Sandığı \n");
-	printf("    		3. Bağ-kur \n");
+	printf("    		2. Emekli SandÄ±ÄŸÄ± \n");
+	printf("    		3. BaÄŸ-kur \n");
 	printf("    		4. Yok \n");
 	printf("    		5. Bilinmiyor \n");
-	printf("    # Hasta'nın Sosyal Güvenlik Kurumunu Giriniz : ");
+	printf("    # Hasta'nÄ±n Sosyal GÃ¼venlik Kurumunu Giriniz : ");
 	
 	sgk_gir:
 	sgk = putch(getch());
@@ -774,20 +771,20 @@ void HastaGuncelle(int id)
 		case '3':
 		case '4':
 		case '5':
-			H.sgkdurumu = sgk-48; // ASCII 'de '1' = 49 ise 49-48= 1 olacaktır
+			H.sgkdurumu = sgk-48; // ASCII 'de '1' = 49 ise 49-48= 1 olacaktÄ±r
 			break;
 		default:
-			printf("\nGeçersiz Girdiniz Yeniden girin! : ");
+			printf("\nGeÃ§ersiz Girdiniz Yeniden girin! : ");
 			goto sgk_gir;
 			break;
 	}
 	
-	printf("\n    # Hasta'nın Adresini Giriniz : ");
+	printf("\n    # Hasta'nÄ±n Adresini Giriniz : ");
 	scanf(" %[^\n]",H.adres);
 	
-	if(Uyar("         Kayıdı güncelleştir         "))
+	if(Uyar("         KayÄ±dÄ± gÃ¼ncelleÅŸtir         "))
 	{
-		Bilgilendir("     Hasta kayıdı iptal edildi!      ");
+		Bilgilendir("     Hasta kayÄ±dÄ± iptal edildi!      ");
 		return;
 	}
 	
@@ -823,7 +820,7 @@ void HastaGuncelle(int id)
 		}
 		fclose(fs);
 		
-		Bilgilendir("     Hasta başarıyla güncellendi     ");
+		Bilgilendir("     Hasta baÅŸarÄ±yla gÃ¼ncellendi     ");
 		return;
 	}
 }
@@ -831,13 +828,13 @@ void HastaGuncelle(int id)
 
 int main()
 {
-	// Ön Hazırlık
+	// Ã–n HazÄ±rlÄ±k
 	int islem=0;
-	system("title Aile Hekimi Sistemi"); // Program başlığını Değiştirdik
-	setlocale(LC_ALL,"turkish");         // Programımızın türkçe karakterleri desteklemesini sağladık
+	system("title Aile Hekimi Sistemi"); // Program baÅŸlÄ±ÄŸÄ±nÄ± DeÄŸiÅŸtirdik
+	setlocale(LC_ALL,"turkish");         // ProgramÄ±mÄ±zÄ±n tÃ¼rkÃ§e karakterleri desteklemesini saÄŸladÄ±k
 
 	git_program_basi:
-	// Ana Menüyü çağıralım
+	// Ana MenÃ¼yÃ¼ Ã§aÄŸÄ±ralÄ±m
 	islem = AnaMenu(islem);
 	switch(islem)
 	{
@@ -847,16 +844,16 @@ int main()
 			goto git_program_basi;
 			
 			
-		//Hasta Kartları
+		//Hasta KartlarÄ±
 		case 1:
 			HastalariYukle();
-			HastaKarti(0);                //1. Hasta kartından ihtibaren göster
+			HastaKarti(0);                //1. Hasta kartÄ±ndan ihtibaren gÃ¶ster
 			goto git_program_basi;
 		
 		//Hasta Arama
 		case 2:
 			HastalariYukle();
-			int hastaid=HastaArama();       //Hasta araması yaptıktan sonra
+			int hastaid=HastaArama();       //Hasta aramasÄ± yaptÄ±ktan sonra
 			if(hastaid != -1)
 				HastaKarti(hastaid);
 			goto git_program_basi;
@@ -873,9 +870,9 @@ int main()
 			Gelistiren();
 			goto git_program_basi;
 			
-		//Çıkış
+		//Ã‡Ä±kÄ±ÅŸ
 		case 5:
-			if(!Uyar("                Çıkış?               "))
+			if(!Uyar("                Ã‡Ä±kÄ±ÅŸ?               "))
 				return 0;
 			else goto git_program_basi;
 		
